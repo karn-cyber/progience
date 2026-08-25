@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main className="system-page"><div className="shell empty-state"><p className="eyebrow">404 · Route not found</p><h1>This path does not lead anywhere yet.</h1><p>Return to the capability system or tell us what you were looking for.</p><div className="hero-actions"><Link className="button button-primary" href="/">Go to the homepage</Link><Link className="button button-secondary" href="/contact/?intent=general">Contact Progience</Link></div></div></main>; }

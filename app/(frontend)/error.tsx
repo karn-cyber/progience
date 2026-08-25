@@ -1,0 +1,2 @@
+"use client";
+export default function GlobalError({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <main className="system-page"><div className="shell empty-state"><p className="eyebrow">Something went wrong</p><h1>We could not complete that request.</h1><p>Your information has not been resubmitted. You can try the page again safely.</p><button className="button button-primary" onClick={reset}>Try again</button></div></main>; }

@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="route-loader" role="status" aria-label="Loading page"><div><strong>Progience</strong><span>Preparing the next view</span><i /></div></div>; }
