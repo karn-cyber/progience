@@ -23,8 +23,13 @@ export const metadata: Metadata = {
   description:
     "Progience connects technology talent, engineering, quality, trust and operations around the outcomes organisations need to move forward.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/assets/brand/progience-favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/assets/brand/progience-favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/assets/brand/progience-favicon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/assets/brand/progience-favicon-32.png",
+    apple: [{ url: "/assets/brand/progience-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://progience.com"),
   openGraph: {

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, Building2, CheckCircle2, Layers3, MoveRight, Rocket } from "lucide-react";
 import { ConnectedSystem, ContextualCTA, ProofStandard, SectionIntro } from "@/components/ui";
 import { capabilities, insights, solutions } from "@/lib/content";
-import { CapabilityConsole } from "@/components/capability-console";
 
 const faqs = [
   { question: "What is a Technology Capability Partner?", answer: "A Technology Capability Partner starts with the outcome and connects the people, engineering, quality, trust and operational disciplines needed to achieve it, instead of treating each as an isolated service." },
@@ -13,28 +12,43 @@ const faqs = [
 export default function Home() {
   return (
     <main><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) }).replace(/</g, "\\u003c") }} />
-      <section className="hero">
-        <div className="shell hero-window">
-          <div className="hero-window-bar" aria-hidden="true"><span><i /><i /><i /></span><strong>Progience capability system</strong><small>Built around your outcome</small></div>
-          <div className="hero-grid">
-            <div className="hero-copy">
-            <p className="eyebrow">Technology capability, joined up</p>
-            <h1>Build. Scale. Evolve. <span>Move with confidence.</span></h1>
+      <section className="hero signal-hero">
+        <div className="shell signal-hero-grid">
+          <div className="hero-copy signal-copy">
+            <p className="signal-status"><i aria-hidden="true" /> Capability system online</p>
+            <h1>Technology capability, <span>built to move.</span></h1>
             <p className="hero-lead">
-              When the roadmap moves faster than the organisation, another isolated supplier will not fix it. Progience brings the right people, engineering, quality, trust and support together around the work that matters now.
+              Progience brings the right people and engineering disciplines together around the work in front of you. Build, scale and move forward with less friction.
             </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="/contact?intent=technology_capability">Talk through the challenge</Link>
-              <Link className="button button-secondary" href="/solutions">See how it fits together</Link>
+              <Link className="button button-primary" href="/contact?intent=technology_capability">Bring us the challenge</Link>
+              <Link className="button button-secondary" href="/solutions">Explore solutions</Link>
             </div>
-            <div className="solution-ribbon" aria-label="Customer solution areas">
-              {['Build','Scale','Engineer','Assure','Operate','Evolve'].map((item) => <span key={item}>{item}</span>)}
-            </div>
-            </div>
-
-            <CapabilityConsole />
+            <p className="signal-promise" aria-label="Build, Scale, Evolve"><span>Build</span><i /><span>Scale</span><i /><span>Evolve</span></p>
           </div>
-          <div className="hero-window-foot"><span>People</span><span>Engineering</span><span>Quality</span><span>Trust</span><span>Operations</span></div>
+
+          <div className="signal-system" aria-label="Connected Progience solutions">
+            <div className="signal-meta signal-meta-top" aria-hidden="true"><span>Capability routing</span><span>Six active modules</span></div>
+            <i className="signal-rail" aria-hidden="true" />
+            <i className="signal-branch signal-branch-one" aria-hidden="true" />
+            <i className="signal-branch signal-branch-two" aria-hidden="true" />
+            <i className="signal-branch signal-branch-three" aria-hidden="true" />
+            <i className="signal-pulse" aria-hidden="true" />
+            <div className="signal-core" aria-hidden="true"><small>Customer</small><strong>Outcome</strong><span>Active</span></div>
+            {[
+              ["Build", "New capability", "build"],
+              ["Scale", "More capacity", "scale"],
+              ["Engineer", "Better products", "engineer"],
+              ["Assure", "More confidence", "assure"],
+              ["Operate", "Steady systems", "operate"],
+              ["Evolve", "What comes next", "evolve"],
+            ].map(([title, note, slug], index) => (
+              <Link className={`signal-node signal-node-${index + 1}`} href={`/solutions/${slug}`} key={slug}>
+                <small>{String(index + 1).padStart(2, "0")}</small><strong>{title}</strong><span>{note}</span>
+              </Link>
+            ))}
+            <div className="signal-meta signal-meta-bottom" aria-hidden="true"><span>Input · business pressure</span><span>Output · joined-up capability</span></div>
+          </div>
         </div>
       </section>
 
