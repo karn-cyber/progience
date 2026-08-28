@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     apple: [{ url: "/assets/brand/progience-apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://progience.com"),
+  alternates: { canonical: "/" },
+  robots:
+    process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production"
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
   openGraph: {
     type: "website",
     siteName: "Progience",

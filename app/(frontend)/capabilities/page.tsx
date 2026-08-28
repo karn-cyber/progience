@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { ConnectedSystem, ContextualCTA, PageHero, SectionIntro } from "@/components/ui";
 import { capabilities, capabilityMap } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Capabilities", description: "Explore the workforce, engineering, trust, emerging technology, application support and quality capabilities behind Progience solutions." };
+export const metadata: Metadata = { title: "Capabilities", description: "Explore the workforce, engineering, trust, emerging technology, application support and quality capabilities behind Progience solutions.", alternates: { canonical: "/capabilities" } };
 
 export default function CapabilitiesPage() {
   return <main><PageHero eyebrow="Delivery capabilities" title="Six capabilities that work better together." intro="Each discipline has depth of its own. The real value appears when the right combination is shaped around a live technology challenge." crumbs={[{ label: "Capabilities" }]} />

@@ -1,6 +1,6 @@
 import { LegalPage } from "@/components/legal-page";
 
-export const metadata = { title: "Privacy" };
+export const metadata = { title: "Privacy", alternates: { canonical: "/privacy" } };
 export default function PrivacyPage() {
   return <LegalPage eyebrow="Privacy" title="Privacy notice" introduction="How website enquiries, consent and analytics data are handled." reviewNote="Final controller details, lawful bases and retention periods require privacy/legal approval before production." sections={[
     { heading: "Information we collect", body: "We collect information you choose to provide in enquiry, subscription and career forms, together with limited source, device and security data needed to operate those services." },

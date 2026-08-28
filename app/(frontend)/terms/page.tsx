@@ -1,5 +1,5 @@
 import { LegalPage } from "@/components/legal-page";
-export const metadata = { title: "Terms of Use" };
+export const metadata = { title: "Terms of Use", alternates: { canonical: "/terms" } };
 export default function TermsPage() { return <LegalPage eyebrow="Legal" title="Terms of use" introduction="The conditions for using Progience website content and services." reviewNote="Entity details, governing law and approved legal wording remain a production gate." sections={[
   { heading: "Website use", body: "The website is provided for general business information. You must not misuse, disrupt or attempt unauthorised access to the service." },
   { heading: "Content and intellectual property", body: "Unless stated otherwise, website content and brand assets remain the property of their respective owners and may not be reused without permission." },
