@@ -11,7 +11,7 @@ export function generateStaticParams() { return solutions.map(({ slug }) => ({ s
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getSolution((await params).slug); if (!item) return {};
-  return { title: `${item.title} Technology Capability`, description: item.promise, openGraph: { title: `${item.title} Technology Capability | Progience`, description: item.promise, images: ["/og.png"] }, twitter: { title: `${item.title} Technology Capability | Progience`, description: item.promise, images: ["/og.png"] } };
+  return { title: `${item.title} Technology Capability`, description: item.promise, alternates: { canonical: `/solutions/${item.slug}` }, openGraph: { title: `${item.title} Technology Capability | Progience`, description: item.promise, images: ["/og.png"] }, twitter: { title: `${item.title} Technology Capability | Progience`, description: item.promise, images: ["/og.png"] } };
 }
 
 export default async function SolutionPage({ params }: Props) {
