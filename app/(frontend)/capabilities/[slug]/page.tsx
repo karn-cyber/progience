@@ -7,7 +7,7 @@ import { capabilities, getCapability, solutions } from "@/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() { return capabilities.map(({ slug }) => ({ slug })); }
-export async function generateMetadata({ params }: Props): Promise<Metadata> { const item = getCapability((await params).slug); if (!item) return {}; return { title: item.title, description: item.role, alternates: { canonical: `/capabilities/${item.slug}` }, openGraph: { title: `${item.title} | Progience`, description: item.role, images: ["/og.png"] }, twitter: { title: `${item.title} | Progience`, description: item.role, images: ["/og.png"] } }; }
+export async function generateMetadata({ params }: Props): Promise<Metadata> { const item = getCapability((await params).slug); if (!item) return {}; return { title: item.title, description: item.role, openGraph: { title: `${item.title} | Progience`, description: item.role, images: ["/og.png"] }, twitter: { title: `${item.title} | Progience`, description: item.role, images: ["/og.png"] } }; }
 
 export default async function CapabilityPage({ params }: Props) {
   const item = getCapability((await params).slug); if (!item) notFound(); const related = solutions.filter((solution) => item.relatedSolutions.includes(solution.slug));

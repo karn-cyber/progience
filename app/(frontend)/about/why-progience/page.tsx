@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { ContextualCTA, PageHero, ProofStandard, SectionIntro } from "@/components/ui";
 
-export const metadata: Metadata = { title: "Why Progience", description: "Why connected technology capability, enterprise discipline and evidence matter when evaluating Progience.", alternates: { canonical: "/about/why-progience" } };
+export const metadata: Metadata = { title: "Why Progience", description: "Why connected technology capability, enterprise discipline and evidence matter when evaluating Progience." };
 const reasons = [
   ["Integrated capability", "Connect the required disciplines around one customer outcome."],
   ["Technology + talent", "Treat specialist people and engineering execution as related capability questions."],

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ContextualCTA, PageHero, ProofStandard, SectionIntro } from "@/components/ui";
 import { capabilities } from "@/lib/content";
 
-export const metadata: Metadata = { title: "GCC Technology Capability", description: "A capability-first path to strategise, establish, build, scale, optimise and transform GCC technology capability.", alternates: { canonical: "/gcc" } };
+export const metadata: Metadata = { title: "GCC Technology Capability", description: "A capability-first path to strategise, establish, build, scale, optimise and transform GCC technology capability." };
 const stages = [
   ["Strategise", "Clarify ambition, context and capability priorities where Progience expertise is established."],
   ["Establish", "Create the initial workforce and operating foundations required to begin."],

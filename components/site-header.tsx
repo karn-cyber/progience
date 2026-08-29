@@ -28,7 +28,7 @@ export function SiteHeader() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="shell header-inner">
         <Link href="/" aria-label="Progience home" className="brand-mark" onClick={() => setOpen(false)}>
-          <Image src="/assets/brand/progience-logo-reversed.png" alt="Progience" width={190} height={40} priority unoptimized />
+          <Image src="/assets/brand/progience-logo-primary.png" alt="Progience" width={190} height={40} priority unoptimized />
         </Link>
 
         <nav aria-label="Primary navigation" className="desktop-nav">
