@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { ContextualCTA, PageHero, SectionIntro } from "@/components/ui";
 import { solutions } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Solutions", description: "Build, Scale, Engineer, Assure, Operate and Evolve technology capability around the outcomes your organisation needs.", alternates: { canonical: "/solutions" } };
+export const metadata: Metadata = { title: "Solutions", description: "Build, Scale, Engineer, Assure, Operate and Evolve technology capability around the outcomes your organisation needs." };
 
 export default function SolutionsPage() {
   return <main><PageHero eyebrow="Customer solutions" title="Start with the move you need to make." intro="Six starting points help turn a broad technology challenge into a focused conversation and a practical capability mix." crumbs={[{ label: "Solutions" }]} actions={<Link className="button button-primary" href="/contact?intent=technology_capability">Discuss your challenge</Link>} />
