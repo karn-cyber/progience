@@ -42,9 +42,13 @@ export function MotionController() {
 
     document.documentElement.classList.add("motion-ready");
     const seen = new WeakSet<Element>();
+    const order = new WeakMap<Element, number>();
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
+        // Apply the stagger at reveal time: the element is hydrated and on-screen by
+        // now, so mutating its style no longer races React's streaming hydration.
+        (entry.target as HTMLElement).style.setProperty("--reveal-order", String(order.get(entry.target) ?? 0));
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
       }
@@ -54,7 +58,7 @@ export function MotionController() {
       document.querySelectorAll(revealSelector).forEach((element, index) => {
         if (seen.has(element)) return;
         seen.add(element);
-        (element as HTMLElement).style.setProperty("--reveal-order", String(index % 4));
+        order.set(element, index % 4);
         observer.observe(element);
       });
     };

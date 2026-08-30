@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
     return [{ source: "/why-progience", destination: "/about/why-progience", permanent: true }];
   },
   async headers() {
-    const csp = ["default-src 'self'", "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com", "style-src 'self' 'unsafe-inline'", "img-src 'self' data: blob:", "font-src 'self' data:", "connect-src 'self' https://challenges.cloudflare.com", "frame-src https://challenges.cloudflare.com", "form-action 'self'", "frame-ancestors 'none'", "base-uri 'self'", "object-src 'none'", "upgrade-insecure-requests"].join("; ");
+    // React dev mode uses eval() for debugging features; only relax script-src in development.
+    const scriptSrc = `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://challenges.cloudflare.com`;
+    const csp = ["default-src 'self'", scriptSrc, "style-src 'self' 'unsafe-inline'", "img-src 'self' data: blob:", "font-src 'self' data:", "connect-src 'self' https://challenges.cloudflare.com", "frame-src https://challenges.cloudflare.com", "form-action 'self'", "frame-ancestors 'none'", "base-uri 'self'", "object-src 'none'", "upgrade-insecure-requests"].join("; ");
     return [{ source: "/(.*)", headers: [
       { key: "Content-Security-Policy", value: csp },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
