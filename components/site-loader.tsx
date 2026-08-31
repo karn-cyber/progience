@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function SiteLoader() {
@@ -27,7 +28,7 @@ export function SiteLoader() {
   return (
     <div className={`site-loader ${phase === "leaving" ? "is-leaving" : ""}`} role="status" aria-label="Loading Progience">
       <div className="loader-mark" aria-hidden="true">
-        <span className="loader-mark-fill" />
+        <Image src="/assets/brand/progience-mark-primary.png" width={240} height={330} alt="" priority />
         <i />
       </div>
     </div>
