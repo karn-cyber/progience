@@ -46,8 +46,6 @@ export function MotionController() {
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
-        // Apply the stagger at reveal time: the element is hydrated and on-screen by
-        // now, so mutating its style no longer races React's streaming hydration.
         (entry.target as HTMLElement).style.setProperty("--reveal-order", String(order.get(entry.target) ?? 0));
         entry.target.classList.add("is-visible");
         observer.unobserve(entry.target);
@@ -63,14 +61,31 @@ export function MotionController() {
       });
     };
 
-    register();
-    const mutationObserver = new MutationObserver(register);
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
-
     const onScroll = () => document.documentElement.classList.toggle("page-scrolled", window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const mutationObserver = new MutationObserver(register);
+
+    // In the App Router the layout hydrates before the page segment, so observing
+    // elements immediately can add is-visible / --reveal-order to a section that
+    // React hasn't hydrated yet — a hydration mismatch. Defer observation until
+    // after hydration. rAF covers the visible case (fires after paint); a timeout
+    // fallback covers a backgrounded tab, where rAF is paused and would otherwise
+    // never reveal the content. motion-ready stays immediate so the reveal-hidden
+    // state is applied without a content flash.
+    let started = false;
+    const start = () => {
+      if (started) return;
+      started = true;
+      register();
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    };
+    const raf = requestAnimationFrame(start);
+    const timer = window.setTimeout(start, 80);
+
     return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(timer);
       observer.disconnect();
       mutationObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
