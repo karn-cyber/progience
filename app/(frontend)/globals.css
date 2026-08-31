@@ -244,6 +244,17 @@ p { margin: 0 0 20px; }
 .footer-top a:hover,.footer-bottom a:hover { color: var(--amber); }
 .footer-bottom { min-height: 78px; padding-block: 18px; display: flex; justify-content: space-between; gap: 28px; align-items: center; border-top: 1px solid rgba(255,255,255,.14); font-size: 13px; }
 .footer-bottom div { display: flex; flex-wrap: wrap; gap: 18px; }
+/* Contact + credentials in the brand column */
+.footer-contact { margin-top: 26px; display: grid; gap: 13px; font-style: normal; font-size: 14px; }
+.footer-brand .footer-contact a { display: grid; grid-template-columns: 16px 1fr; gap: 11px; align-items: start; color: var(--muted-on-dark); line-height: 1.5; }
+.footer-contact svg { margin-top: 3px; color: var(--sky); }
+.footer-brand .footer-contact a:hover { color: var(--white); transform: none; }
+.footer-badges { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.footer-brand .footer-social { width: 42px; height: 42px; display: grid; place-items: center; color: var(--white); border: 1px solid rgba(255,255,255,.2); border-radius: 11px; transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.footer-brand .footer-social:hover { color: var(--brand-navy); background: var(--sky); border-color: var(--sky); transform: translateY(-2px); }
+.footer-brand .footer-duns { display: inline-flex; align-items: center; gap: 8px; padding: 10px 15px; color: var(--text-on-dark); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; font: 500 11.5px var(--font-label); letter-spacing: .05em; text-transform: uppercase; transition: color 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.footer-brand .footer-duns svg { color: var(--amber); }
+.footer-brand .footer-duns:hover { color: var(--white); border-color: var(--amber); transform: translateY(-2px); }
 .empty-state { max-width: 760px; padding: 64px; text-align: center; background: var(--mist); border-radius: 16px; }
 .empty-state.compact { padding: 42px; }
 .empty-state .hero-actions { justify-content: center; }

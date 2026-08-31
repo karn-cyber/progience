@@ -59,7 +59,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
-            { "@type": "Organization", "@id": "https://progience.com/#organization", name: "Progience", url: "https://progience.com", logo: "https://progience.com/assets/brand/progience-logo-primary.png", description: "A Technology Capability Partner connecting people, engineering, quality, trust and operations around customer outcomes." },
+            { "@type": "Organization", "@id": "https://progience.com/#organization", name: "Progience", url: "https://progience.com", logo: "https://progience.com/assets/brand/progience-logo-primary.png", description: "A Technology Capability Partner connecting people, engineering, quality, trust and operations around customer outcomes.", email: "info@progience.com", telephone: "+91-40-46046713", address: { "@type": "PostalAddress", streetAddress: "#103, Level 1, Krishe Block, Krishe Sapphire, Madhapur", addressLocality: "Hyderabad", addressRegion: "Telangana", postalCode: "500081", addressCountry: "IN" }, sameAs: ["https://www.linkedin.com/company/progience-technologies/", "https://profiles.dunsregistered.com/TPIN-BAS-004.aspx"] },
             { "@type": "WebSite", "@id": "https://progience.com/#website", url: "https://progience.com", name: "Progience", publisher: { "@id": "https://progience.com/#organization" }, inLanguage: "en" },
           ],
         }).replace(/</g, "\\u003c") }} />
